@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from book_site.models import User
-from django.forms import  ModelForm
+from django.forms import ModelForm
 # Create your models here.
 
 
