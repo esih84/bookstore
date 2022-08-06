@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from book_site.models import User
+from django.forms import  ModelForm
 # Create your models here.
 
 
@@ -34,3 +35,18 @@ class Books(models.Model):
     def __str__(self):
         return self.bookName
 
+
+class comment(models.Model):
+    user = models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
+    book_key = models.ForeignKey(Books, related_name='book_key', on_delete=models.CASCADE)
+    text = models.TextField(max_length=700)
+    date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.book_key.bookName
+
+
+class comment_form(ModelForm):
+    class Meta:
+        model = comment
+        fields = ['text']

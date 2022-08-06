@@ -20,7 +20,9 @@
         <div class="swiper books-slider">
             <div class="swiper-wrapper">
                 {% for books in book %}
-                <a href="{% url 'admin_post:Detail' books.slug %}" class="swiper-slide"><img src="{{ books.photo.url }}" alt=""></a>
+                <a href="{% url 'admin_post:Detail' books.slug  books.id %}" class="swiper-slide"><img src="{{ books.photo.url }} " alt=""></a>
+
+
                {% endfor %}
             </div>
             <img src="{% static 'book_site/image/stand.png' %}" class="stand" alt="">
@@ -85,7 +87,7 @@
             <div class="swiper-slide box">
 
                 <div class="icons">
-                    <a href="{% url 'admin_post:Detail' books.slug %}" class="fas fa-search"></a>
+                    <a href="{% url 'admin_post:Detail' books.slug books.id %}" class="fas fa-search"></a>
                 </div>
                 <div class="image">
                     <img src="{{ books.photo.url }}" alt="">
@@ -141,7 +143,7 @@
 
         <div class="swiper-wrapper">
             {% for book_discounts in book_discount %}
-            <a href="{% url 'admin_post:Detail' book_discounts.slug %}" class="swiper-slide box">
+            <a href="{% url 'admin_post:Detail' book_discounts.slug book_discounts.id %}" class="swiper-slide box">
                 <div class="image">
                     <img src="{{ book_discounts.photo.url }}" alt="">
                 </div>
@@ -164,7 +166,7 @@
 
 
             {% for book_discounts in book_discount %}
-            <a href="{% url 'admin_post:Detail' book_discounts.slug %}" class="swiper-slide box">
+            <a href="{% url 'admin_post:Detail' book_discounts.slug book_discounts.id %}" class="swiper-slide box">
                 <div class="image">
                     <img src="{{ book_discounts.photo.url }}" alt="">
                 </div>
@@ -219,13 +221,7 @@
                  <img src="{{ categorys.photo.url }}" alt="">
                 <h3>{{ categorys.title }}</h3>
                 <p>{{ categorys.description }}</p>
-{#                <div class="stars">#}
-{#                    <i class="fas fa-star"></i>#}
-{#                    <i class="fas fa-star"></i>#}
-{#                    <i class="fas fa-star"></i>#}
-{#                    <i class="fas fa-star"></i>#}
-{#                    <i class="fas fa-star-half-alt"></i>#}
-{#                </div>#}
+
 
             </a>
             </div>
@@ -298,7 +294,7 @@
         <a href="#" class="fab fa-pinterest"></a>
     </div>
 
-    <div class="credit"> فارسی و راست چین شده توسط <a href="https://netcopy.ir"><span>نت کپی</span></a> </div>
+
 
 </section>
 

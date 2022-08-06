@@ -149,10 +149,6 @@ section{
     color:var(--green);
 }
 
-#search-btn{
-    display: none;
-}
-
 .header .header-2{
     background:var(--green);
 }

@@ -78,6 +78,7 @@ def shopingView(request, id):
 
     return redirect(url)
 
+
 @login_required(login_url='/book_site/login/')
 def shopingCart(request):
     users = request.user.shop_book.all()
@@ -85,3 +86,4 @@ def shopingCart(request):
         "book": users,
     }
     return render(request, 'book_site/shopiing-cart.html', context)
+

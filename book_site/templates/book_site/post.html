@@ -10,26 +10,27 @@
 
 <title>{{ book.bookName }}</title>
 <!-- Bootstrap core CSS -->
+
 <link href="{% static 'book_site/css/bootstrap.min.css' %}" rel="stylesheet">
+     <link rel="stylesheet" href="{% static 'book_site/css/comment.css' %}">
 <!-- Fonts -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
 <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static 'book_site/css/comment.css' %}">
 <link href="{% static 'book_site/css/mediumish.css' %}" rel="stylesheet">
 </head>
 <body>
 
 
 
-<!-- Begin Article
-================================================== -->
+
+
 <div class="container">
 	<div class="row">
 
 {#		<!-- Begin Fixed Left Share -->#}
-{#		<div class="col-md-2 col-xs-12">#}
-{#			#}
-{#		</div>#}
+
 {#		<!-- End Fixed Left Share -->#}
 
 		<!-- Begin Post -->
@@ -52,7 +53,7 @@
 				
 				
 			</div>
-			<!-- End Post Content -->
+
 
 			<!-- Begin Tags -->
 			<div class="after-post-tags">
@@ -62,10 +63,56 @@
 					{% endfor %}
 				</ul>
 			</div>
-			<!-- End Tags -->
 
 		</div>
-		<!-- End Post -->
+
+
+        	<div class="col-md-12 col-md-offset-2 col-xs-12">
+
+
+
+
+                <section style="margin-top: 1rem">
+                    <div class="containers">
+                        <div class="rows">
+
+                            <div  class="col-md-12 col-xs-12  ">
+                                <form method="POST" action="{% url 'admin_post:comments' book.id %}" id="algin-form">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <h4>نظرتان را وارد کنید</h4>
+
+                                        <textarea name="text" id="msg" cols="30" placeholder="پیام" rows="5" class="form-control" ></textarea>
+                                    </div>
+
+
+
+
+                                    <div class="form-group">
+                                        <button type="submit" id="post" class="btn">پیام</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-12 col-md-offset-2 col-xs-12 back comnt">
+
+                                <h1>نظرات</h1>
+                                {% for comments in comment %}
+                                <div class="darker mt-4 " style="width: 99%;">
+                                      <span>{{ comments.date }}</span>
+                                    <h4>{{ comments.user.username }}</h4>
+                                    <img src="{% static 'book_site/image/download (1).png' %}" alt="" class="rounded-circle" width="40" height="40">
+                                    <br>
+                                    <p>{{ comments.text }}</p>
+                                </div>
+                                {% endfor %}
+
+
+            </div>
+		</div>
 
 	</div>
 </div>
@@ -84,18 +131,7 @@
 <!-- End Twitter Timeline
 ================================================== -->
 
-<!-- Begin AlertBar
-================================================== -->
-<!-- <div class="alertbar">
-	<div class="container text-center">
-		<img src="assets/img/logo.png" alt=""> &nbsp; Never miss a <b>story</b> from us, get weekly updates in your inbox. <a href="#" class="btn subscribe">Get Updates</a>
-	</div>
-</div> -->
-<!-- End AlertBar
-================================================== -->
 
-<!-- Begin Footer
-================================================== -->
 <div class="container">
 	<div class="footer">
 		<p class="pull-left">
@@ -114,6 +150,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+
+
 <script src="{% static 'book_site/js/js/jquery.min.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="{% static 'book_site/js/js/bootstrap.min.js' %}"></script>

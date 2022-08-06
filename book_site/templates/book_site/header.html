@@ -28,7 +28,9 @@
         <a href="#" class="logo"> <i class="fas fa-book"></i> کتابخانه </a>
 
 
+
         <div class="icons">
+            <div id="search-btn" style="display: none" class="fas fa-home"></div>
             <a href="{% url 'admin_post:books' %}" class="fas fa-home"></a>
             {% if user.is_authenticated %}
             <a href="{% url 'book_site:shop-cart' %}" class="fas fa-shopping-cart"></a>
