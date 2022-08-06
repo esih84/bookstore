@@ -1,5 +1,4 @@
 from django.db import models
-
 from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager
 from django.utils import timezone
 from django.forms import ModelForm
@@ -62,11 +61,7 @@ class User(AbstractBaseUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=50, null=True)
-    last_name = models.CharField(max_length=50, null=True)
-    phone = models.IntegerField(null=True)
     postal_address = models.CharField(max_length=30, null=True)
-    address = models.CharField(max_length=200)
 
 
 def save_profile_user(sender, **kwargs):

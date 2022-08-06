@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from .models import *
-from django.contrib import messages
+from django.http import HttpResponse
+from admin_post.models import Books
 from .forms import *
 from django.contrib.auth.decorators import login_required
 
@@ -10,7 +11,6 @@ from django.contrib.auth.decorators import login_required
 
 def Logout(request):
     logout(request)
-    messages.success(request, 'logout'),
     return redirect('book_site:login')
 
 
@@ -25,7 +25,7 @@ def signup(request):
             user.save()
             return redirect('book_site:login')
         else:
-            messages.error(request, "username or email is exist")
+            return HttpResponse('نام کاربر یا ایمیل اشتباه است')
 
     else:
         form = UserSignupForm()
@@ -47,11 +47,9 @@ def Login_user(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request, 'welcome to bookstore', 'success')
             return redirect("admin_post:books")
         else:
-
-            messages.error(request, 'user or password wrong')
+            HttpResponse('فیلد ها پرنشده')
             return render(request, "book_site/login.html")
     else:
         return render(request, 'book_site/login.html', {})
@@ -65,3 +63,25 @@ def profileUser(request, user_id):
         'profile': profile
     }
     return render(request, 'book_site/profile.html', context)
+
+
+@login_required(login_url='/book_site/login/')
+def shopingView(request, id):
+    url = request.META.get('HTTP_REFERER')
+    book = get_object_or_404(Books, id=id)
+
+    if book.user.filter(id=request.user.id).exists():
+        book.user.remove(request.user)
+
+    else:
+        book.user.add(request.user)
+
+    return redirect(url)
+
+@login_required(login_url='/book_site/login/')
+def shopingCart(request):
+    users = request.user.shop_book.all()
+    context = {
+        "book": users,
+    }
+    return render(request, 'book_site/shopiing-cart.html', context)

@@ -27,16 +27,14 @@
 
         <a href="#" class="logo"> <i class="fas fa-book"></i> کتابخانه </a>
 
-        <form action="" class="search-form">
-            <input type="search" name="" placeholder="جستجو کنید" id="search-box">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
 
         <div class="icons">
-            <div id="search-btn" class="fas fa-search"></div>
-            <a href="./profile.html" class="fas fa-shopping-cart"></a>
+            <a href="{% url 'admin_post:books' %}" class="fas fa-home"></a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'book_site:shop-cart' %}" class="fas fa-shopping-cart"></a>
 
             <a id="login-btn" href="{% url 'book_site:profile' request.user.id %}" class="fas fa-user"></a>
+            {% endif %}
         </div>
 
     </div>

@@ -7,7 +7,7 @@ from .models import Books, Category
 def books(requests):
     context = {
         "book": Books.objects.filter(status="p").order_by("-publish"),
-        "book_discount": Books.objects.filter(status="p", discount__isnull= False).order_by("-publish"),
+        "book_discount": Books.objects.filter(status="p", discount__isnull=False).order_by("-publish"),
         "category": Category.objects.filter(status=True),
     }
     return render(requests, "book_site/index.html", context)

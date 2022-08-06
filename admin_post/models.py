@@ -29,6 +29,7 @@ class Books(models.Model):
     publish = models.DateTimeField(default=timezone.now, verbose_name='تاریخ')
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     photo = models.ImageField(upload_to='images/', verbose_name='عکس')
+    user = models.ManyToManyField(User,  related_name='shop_book', blank=True, null=True)
 
     def __str__(self):
         return self.bookName

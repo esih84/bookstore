@@ -1,35 +1,8 @@
-{% extends 'book_site/base.html' %}
-{% block main %}
+
 {% load static %}
     {% include 'book_site/header.html' %}
 
-{##}
-{#    <div class="header-2">#}
-{#        <nav class="navbar">#}
-{#            <a href="#home">خانه</a>#}
-{#            <a href="#featured">ویژه</a>#}
-{#            <a href="#arrivals">تخیفات ویژه</a>#}
-{#            <a href="#reviews">دسته بندی ها</a>#}
-{##}
-{#        </nav>#}
-{#    </div>#}
-{##}
-{#</header>#}
-{##}
-{#<!-- header section ends -->#}
-{##}
-{#<!-- bottom navbar  -->#}
-{##}
-{#<nav class="bottom-navbar">#}
-{#    <a href="#home" class="fas fa-home"></a>#}
-{#    <a href="#featured" class="fas fa-list"></a>#}
-{#    <a href="#arrivals" class="fas fa-tags"></a>#}
-{#    <a href="#reviews" class="fas fa-comments"></a>#}
-{#    <a href="#blogs" class="fas fa-blog"></a>#}
-{#</nav>#}
-{##}
-{#<!-- login form  -->#}
-{##}
+
 
 
 <!-- home section starts  -->
@@ -41,7 +14,7 @@
         <div class="content">
             <h3>تا 75٪ تخفیف</h3>
             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
-            <a href="#" class="btn">اکنون خرید کنید</a>
+            <a href="{% url 'book_site:signup' %}" class="btn">عضویت</a>
         </div>
 
         <div class="swiper books-slider">
@@ -113,8 +86,6 @@
 
                 <div class="icons">
                     <a href="{% url 'admin_post:Detail' books.slug %}" class="fas fa-search"></a>
-                    <!-- <a href="#" class="fas fa-heart"></a> -->
-                    <!-- <a href="#" class="fas fa-eye"></a> -->
                 </div>
                 <div class="image">
                     <img src="{{ books.photo.url }}" alt="">
@@ -122,7 +93,8 @@
                 <div class="content">
                     <h3>{{ books.bookName }}</h3>
                     <div class="price"> {{ books.price }}</div>
-                    <a href="shopiing-cart.html" class="btn">اضافه کردن به سبد خرید</a>
+                    <a href="{% url 'book_site:shop' books.id %}" class="btn">اضافه کردن به سبد خرید</a>
+
                 </div>
             </div>
             {% endfor %}
@@ -146,12 +118,14 @@
 <!-- newsletter section starts -->
 
 <section class="newsletter">
+    <div style="height: 15rem">
+        <a href="{% url 'book_site:signup' %}">
+        <h1 style="color: white">برای آخرین به روز رسانی مشترک شوید</h1>
 
-    <form action="">
-        <h3>برای آخرین به روز رسانی مشترک شوید</h3>
-        <input type="email" name="" placeholder="ایمیل خود را وارد کنید" id="" class="box">
         <input type="submit" value="عضویت" class="btn">
-    </form>
+    </a>
+    </div>
+
 
 </section>
 
@@ -166,9 +140,6 @@
     <div class="swiper arrivals-slider">
 
         <div class="swiper-wrapper">
-
-
-
             {% for book_discounts in book_discount %}
             <a href="{% url 'admin_post:Detail' book_discounts.slug %}" class="swiper-slide box">
                 <div class="image">
@@ -177,13 +148,6 @@
                 <div class="content">
                     <h3> {{ book_discounts.bookName }}</h3>
                     <div class="price">{{ book_discounts.discount }}<span> {{ book_discounts.price }}</span></div>
-{#                    <div class="stars">#}
-{#                        <i class="fas fa-star"></i>#}
-{#                        <i class="fas fa-star"></i>#}
-{#                        <i class="fas fa-star"></i>#}
-{#                        <i class="fas fa-star"></i>#}
-{#                        <i class="fas fa-star-half-alt"></i>#}
-{#                    </div>#}
                 </div>
             </a>
 
@@ -207,13 +171,7 @@
                 <div class="content">
                     <h3> {{ book_discounts.bookName }}</h3>
                     <div class="price">{{ book_discounts.discount }}<span> {{ book_discounts.price }}</span></div>
-{#                    <div class="stars">#}
-{#                        <i class="fas fa-star"></i>#}
-{#                        <i class="fas fa-star"></i>#}
-{#                        <i class="fas fa-star"></i>#}
-{#                        <i class="fas fa-star"></i>#}
-{#                        <i class="fas fa-star-half-alt"></i>#}
-{#                    </div>#}
+
                 </div>
             </a>
 
@@ -234,7 +192,7 @@
         <h3>معامله روز</h3>
         <h1>تا 50٪ تخفیف</h1>
         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
-        <a href="#" class="btn">اکنون خرید کنید</a>
+        <a href="{% url 'book_site:signup' %}" class="btn">عضویت</a>
     </div>
 
     <div class="image">
@@ -268,8 +226,9 @@
 {#                    <i class="fas fa-star"></i>#}
 {#                    <i class="fas fa-star-half-alt"></i>#}
 {#                </div>#}
-            </div>
+
             </a>
+            </div>
 
             {% endfor %}
 
@@ -368,4 +327,3 @@
 
 </body>
 </html>
-{% endblock %}
