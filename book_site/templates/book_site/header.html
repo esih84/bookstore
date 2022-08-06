@@ -1,0 +1,46 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> فروشگاه آنلاین کتاب </title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'book_site/css/style.css' %}">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <div class="header-1">
+
+        <a href="#" class="logo"> <i class="fas fa-book"></i> کتابخانه </a>
+
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="جستجو کنید" id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
+            <a href="./profile.html" class="fas fa-shopping-cart"></a>
+
+            <a id="login-btn" href="{% url 'book_site:profile' request.user.id %}" class="fas fa-user"></a>
+        </div>
+
+    </div>
+
+
+</header>
+<script src="{% static 'book_site/js/script.js' %}"></script>

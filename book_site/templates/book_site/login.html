@@ -1,0 +1,37 @@
+{% extends 'book_site/base.html' %}
+{% block main %}
+
+{% load static %}
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="{% static 'book_site/css/style.css' %}">
+  <title>Login</title>
+</head>
+
+<body>
+
+<div class="login-form-container">
+
+    <div id="close-login-btn" class="fas fa-times"></div>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <h3>ورود</h3>
+        <span>نام کاربری/ایمیل</span>
+        <input type="text" name="email" class="box" placeholder="ایمیل یا نام کاریری خود را وارد کنید" id="">
+        <span>رمز عبور</span>
+        <input type="password" name="password" class="box" placeholder="رمز عبور خود را وارد کنید" id="">
+
+        <input type="submit" value="sign in" class="btn">
+        <p>رمز خود را فراموش کرده اید ؟ <a href="#">اینجا کلیک کنید</a></p>
+        <p>ثبت نام نکرده اید ؟ <a href="{% url  'book_site:signup' %}">ساخت حساب</a></p>
+    </form>
+
+</div>
+
+</body>
+
+</html>
+{% endblock %}

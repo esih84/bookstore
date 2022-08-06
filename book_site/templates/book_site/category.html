@@ -1,0 +1,26 @@
+{% load static %}
+{% include 'book_site/header.html' %}
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="row">
+
+
+
+        <div class="swiper books-slider">
+            <div class="swiper-wrapper">
+                {% for cate in category.categorys.all %}
+                <a href="{% url 'admin_post:Detail' cate.slug %}" class="swiper-slide"><img src="{{ cate.photo.url }}" alt=""></a>
+               {% endfor %}
+            </div>
+            <img src="{% static 'book_site/image/stand.png' %}" class="stand" alt="">
+        </div>
+
+    </div>
+
+</section>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'book_site/js/script.js' %}"></script>

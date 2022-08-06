@@ -1,0 +1,126 @@
+{% block main %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="persian">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>{{ book.bookName }}</title>
+<!-- Bootstrap core CSS -->
+<link href="{% static 'book_site/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="{% static 'book_site/css/mediumish.css' %}" rel="stylesheet">
+</head>
+<body>
+
+
+
+<!-- Begin Article
+================================================== -->
+<div class="container">
+	<div class="row">
+
+{#		<!-- Begin Fixed Left Share -->#}
+{#		<div class="col-md-2 col-xs-12">#}
+{#			#}
+{#		</div>#}
+{#		<!-- End Fixed Left Share -->#}
+
+		<!-- Begin Post -->
+		<div class="col-md-12 col-md-offset-2 col-xs-12 back">
+			<div class="mainheading">
+
+		
+				<h1 class="posttitle" > {{ book.bookName }}</h1>
+			</div>
+
+			<!-- Begin Featured Image -->
+			<img class="featured-image img-fluid" src="{{ book.photo.url }}" alt="">
+			<!-- End Featured Image -->
+
+			<!-- Begin Post Content -->
+			<div class="article-post" style="text-align:right;">
+				<p class="texts" style="padding-left:9rem">
+                    {{ book.description }}
+				</p>
+				
+				
+			</div>
+			<!-- End Post Content -->
+
+			<!-- Begin Tags -->
+			<div class="after-post-tags">
+				<ul class="tags" style="margin-right: 9rem;">
+                    {% for category in book.category.all %}
+					<li ><a href="{% url 'admin_post:Category' category.slug %}">{{ category.title }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<!-- End Tags -->
+
+		</div>
+		<!-- End Post -->
+
+	</div>
+</div>
+<!-- End Articler
+================================================== -->
+
+<div class="hideshare"></div>
+
+
+
+<!-- Begin Twitter Timeline
+================================================== -->
+<div class="container margtop3rem">
+<a class="twitter-grid" href="https://twitter.com/TwitterDev/timelines/539487832448843776">WowThemesNet Tweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<!-- End Twitter Timeline
+================================================== -->
+
+<!-- Begin AlertBar
+================================================== -->
+<!-- <div class="alertbar">
+	<div class="container text-center">
+		<img src="assets/img/logo.png" alt=""> &nbsp; Never miss a <b>story</b> from us, get weekly updates in your inbox. <a href="#" class="btn subscribe">Get Updates</a>
+	</div>
+</div> -->
+<!-- End AlertBar
+================================================== -->
+
+<!-- Begin Footer
+================================================== -->
+<div class="container">
+	<div class="footer">
+		<p class="pull-left">
+			 Copyright &copy; 2017 Your Website Name
+		</p>
+		<p class="pull-right">
+			 Mediumish Theme by <a target="_blank" href="#">WowThemes.net</a>
+		</p>
+		<div class="clearfix">
+		</div>
+	</div>
+</div>
+<!-- End Footer
+================================================== -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'book_site/js/js/jquery.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="{% static 'book_site/js/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'book_site/js/js/ie10-viewport-bug-workaround.js' %}"></script>
+<script src="{% static 'book_site/js/js/mediumish.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

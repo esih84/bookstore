@@ -1,0 +1,17 @@
+#book_detail_slider, #view, #quick_view , #inner-page-holder{background-color:#171717;}
+#newsletter,#author, #title-bar{ background-color:#000000;}
+#newsletter h2, #prixing_box h2, #pricing p, #pricing h2, #book_detail_slider, #features p, #features h2, #quick_view h1, #book_detail_slider h2, #title-bar h2, .post-cap p, #inner-page-holder h4, .contact-form label, .author-det{color:#fff;}
+#reviews, #pricing, #features{ background-color:#2a2a2a}
+.bPrice{ font-weight:bold; color:#000 !important; font-weight:600;} 
+#side2{ background:#171717 !important;}
+#view h4,
+#quick_view h4,
+#reviews h4,
+#newsletter h4,
+#pricing h4,
+#features h4,
+#book_detail_slider h4{ color:#fff;}
+#view .view_quote h1{ color:#fff; font-weight:300;}
+.feature_box{ background:#000;}
+.f_num {    background: url("../../images/color/dark/features_icon.png") no-repeat scroll center top transparent;     color: #454545; }
+#feature_list h3{ color:#fff; font-weight:300;}

@@ -1,0 +1,29 @@
+.profile-head {
+    transform: translateY(5rem)
+}
+
+.cover {
+    background-image: url(https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+body {
+    background: #27ae60;
+    background: linear-gradient(to right, #27ae60, #219150);
+    min-height: 100vh;
+    overflow-x:hidden;
+}
+
+h5.mb-0{
+    color: #27ae60;
+}
+.hh {
+    color: #27ae60;
+    border-color: #27ae60;
+}
+.hh:hover {
+    background: #27ae60;
+    border-color: #27ae60;
+
+}

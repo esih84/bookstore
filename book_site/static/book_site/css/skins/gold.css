@@ -1,0 +1,53 @@
+/** font Color Setting **/
+
+#main_slider h4,
+a.purchase,
+#book_detail_slider h4 span,
+#features h4 span,
+#pricing h4 span,
+#view h4 span,
+.author_status,
+#quick_view h4 span,
+#reviews h2,
+.review_list i,
+#newsletter h4 span,
+.book-cap p span,
+.book-cap .title,
+.view_quote i,
+.date,
+.cat-list li a:hover,
+.author-det span
+{ color:#dba401 !important}
+
+/** Border Color Setting **/
+a.purchase,
+.author_slider .bx-wrapper .bx-pager.bx-default-pager a.active,
+.contact-form input[type="submit"]
+{ border-color:#dba401 !important; }
+
+/** Background Color Setting **/
+.mobile_slider .bx-wrapper .bx-pager.bx-default-pager a:hover,
+.mobile_slider .bx-wrapper .bx-pager.bx-default-pager a.active,
+#newsletter_form input[type="submit"],
+a.purchase2,
+.req_inf,
+.view_head,
+#feature_list li:hover .feature_box,
+.comm-bg,
+.more-btn,
+.contact-form input[type="submit"],
+.default-pagination li:hover,
+.tags a:hover{ background:#dba401 !important;}
+
+/** Background images **/
+
+
+#main_slider .bx-wrapper .bx-prev {
+    background: url("../../images/color/gold/main_arrow.jpg") no-repeat scroll left top transparent;
+}
+#main_slider .bx-wrapper .bx-next {
+    background: url("../../images/color/gold/main_arrow.jpg") no-repeat scroll right top transparent;
+}
+#nav .navbar-inverse .nav .active>a,#nav .navbar-inverse .nav a:hover {
+	background-image:url('../../images/color/gold/top-bg-active.png') !important;
+}
